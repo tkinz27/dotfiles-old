@@ -15,8 +15,9 @@ short_path ()
 }
 
 function prompt_callback {
-    path=$(short_path $PWD 20)
-    echo -n " ${Green}${path}"
+    #path=$(short_path $PWD 30)
+    #echo -n " ${Green}${path}"
+    echo -n " ${Green}\w"
     if [ `jobs | wc -l` -ne 0 ]; then
         echo -n " jobs:\j"
     fi
