@@ -23,6 +23,12 @@ alias grep="grep --color=auto"
 alias work="ssh -Y akinsley@192.168.130.104"
 alias gocode="cd $GOPATH"
 
+alias cpa="rsync -av --progress --whole-file"
+alias cpr="rsync -rv --progress --whole-file"
+
+alias ra="rsync -avzP"
+alias rr="rsync -rvzP"
+
 alias ssh="ssh -oStrictHostKeyChecking=no -oCheckHostIP=no -oConnectionAttempts=5 -oConnectTimeout=8 -oServerAliveInterval=5 -oTCPKeepAlive=no -Y"
 
 # consoles
