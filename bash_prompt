@@ -26,6 +26,8 @@ function prompt_callback {
 GIT_PROMPT_START="_LAST_COMMAND_INDICATOR_ ${Magenta}\u ${Cyan}\h${ResetColor}"
 GIT_PROMPT_END="\n${White}$ ${ResetColor}"
 
+GIT_PROMPT_FETCH_REMOTE_STATUS=0
+GIT_PROMPT_SHOW_UPSTREAM=1
 source ~/.bash-git-prompt/gitprompt.sh
 
 export PS2="${BrightRed}→ ${ResetColor}"
