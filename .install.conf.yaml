@@ -7,6 +7,9 @@
     ~/.vimrc: vimrc
     ~/.vim: vim/
 
+    # NeoVIM
+    ~/.config/nvim: nvim
+
     # Bash
     ~/.bash_profile: bash_profile
     ~/.bashrc: bashrc
