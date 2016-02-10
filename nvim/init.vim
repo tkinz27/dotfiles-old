@@ -61,7 +61,7 @@ nnoremap <leader>f :echo expand('%:p')<cr>
 
 " Source and Edit nvim/init
 nnoremap <leader>src :source ~/.config/nvim/init.vim<cr>
-nnoremap <leader>erc :vsp ~/.vimrc<cr>
+nnoremap <leader>erc :vsp ~/.config/nvim/init.vim<cr>
 
 " Sudo save a file
 nnoremap <leader>save :w !sudo dd of=%<cr>
@@ -108,6 +108,13 @@ nnoremap <leader>wvh <C-w>t<C-w>K
 nnoremap <leader>whv <C-w>t<C-w>H
 
 """""""""""""""""""""""""""""""""""
+" Neovim terminal support
+"""""""""""""""""""""""""""""""""""
+if has('nvim')
+    tnoremap <Esc> <C-\><C-n>
+endif
+
+"""""""""""""""""""""""""""""""""""
 " Operator Maps
 """""""""""""""""""""""""""""""""""
 " Operator maps to get inside () '' and "
@@ -149,6 +156,8 @@ Plug 'mitsuhiko/vim-jinja', {'for': ['jinja']}
 Plug 'mxw/vim-jsx', {'for': ['jsx']}
 Plug 'pangloss/vim-javascript', {'for': ['javascript']}
 Plug 'artur-shaik/vim-javacomplete2', {'for': ['java']}
+Plug 'stephpy/vim-yaml', {'for': ['yaml']}
+Plug 'mattn/emmet-vim', {'for': ['html', 'css']}
 
 call plug#end()
 
@@ -186,6 +195,9 @@ let g:neomake_error_sign = {
     \ }
 let g:neomake_warning_sign = {
     \ 'text': '⚠',
+    \ }
+let g:neomake_info_sign = {
+    \ 'text': '>',
     \ }
 autocmd! BufReadPost * Neomake
 autocmd! BufWritePost * Neomake

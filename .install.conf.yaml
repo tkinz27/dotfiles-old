@@ -4,8 +4,8 @@
 
 - link:
     # Vim
-    ~/.vimrc: vimrc
-    ~/.vim: vim/
+    ~/.vimrc: nvim/init.vim
+    ~/.vim: nvim
 
     # NeoVIM
     ~/.config/nvim: nvim
