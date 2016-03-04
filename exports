@@ -9,4 +9,6 @@ export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 
 export GOPATH=~/gocode
 
-eval "$(docker-machine env dev)"
+if [ -n $(which docker-machine) ]; then
+    eval "$(docker-machine env dev)"
+fi

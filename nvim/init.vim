@@ -139,16 +139,23 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-surround'
 Plug 'kien/ctrlp.vim'
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'spiroid/vim-ultisnip-scala'
 Plug 'airblade/vim-rooter'
 Plug 'benekastah/neomake'
 " Plug 'scrooloose/syntastic'
+if has('nvim')
+    Plug 'shougo/deoplete.nvim'
+endif
 
 " On Command
 Plug 'majutsushi/tagbar', {'on': 'TagbarOpen'}
 Plug 'godlygeek/tabular', {'on': 'Tabularize'}
 Plug 'scrooloose/nerdtree', {'on':  'NERDTreeToggle'}
 Plug 'tpope/vim-fugitive', {'on': 'Git'}
+Plug 'rizzatti/dash.vim', {'on': 'Dash'}
+Plug 'kien/rainbow_parentheses.vim', {'on': 'RainbowParenthesesToggleAll'}
 
 " On File Type
 Plug 'fatih/vim-go', {'for': ['go']}
@@ -158,6 +165,8 @@ Plug 'pangloss/vim-javascript', {'for': ['javascript']}
 Plug 'artur-shaik/vim-javacomplete2', {'for': ['java']}
 Plug 'stephpy/vim-yaml', {'for': ['yaml']}
 Plug 'mattn/emmet-vim', {'for': ['html', 'css']}
+Plug 'derekwyatt/vim-scala', {'for': ['scala']}
+Plug 'hdima/python-syntax', {'for': ['python']}
 
 call plug#end()
 
@@ -199,6 +208,8 @@ let g:neomake_warning_sign = {
 let g:neomake_info_sign = {
     \ 'text': '>',
     \ }
+let g:neomake_airline = 1
+
 autocmd! BufReadPost * Neomake
 autocmd! BufWritePost * Neomake
 
@@ -209,6 +220,10 @@ if exists(":Tabularize")
     nnoremap <leader>a: :Tabularize /:\zs<CR>
     vnoremap <leader>a: :Tabularize /:\zs<CR>
 
+endif
+
+if exists(':DeopleteEnable')
+    let g:deoplete#enable_at_startup = 1
 endif
 
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
@@ -237,6 +252,12 @@ nnoremap <leader>l :TaskList<cr>
 let g:UltiSnipsEditSplit="context"
 let g:UltiSnipsListSnippets="<c-s-tab>"
 let g:ultisnips_python_style="sphinx"
+
+" Rainbow Parens stuff
+nnoremap <leader>( :RainbowParenthesesToggleAll<cr>
+
+" Dash.vim stuff
+nmap <silent> <leader>d <Plug>DashSearch
 
 " javacomplete stuff
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
