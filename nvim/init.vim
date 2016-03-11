@@ -144,6 +144,8 @@ Plug 'honza/vim-snippets'
 Plug 'spiroid/vim-ultisnip-scala'
 Plug 'airblade/vim-rooter'
 Plug 'benekastah/neomake'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 " Plug 'scrooloose/syntastic'
 if has('nvim')
     Plug 'shougo/deoplete.nvim'
@@ -153,7 +155,6 @@ endif
 Plug 'majutsushi/tagbar', {'on': 'TagbarOpen'}
 Plug 'godlygeek/tabular', {'on': 'Tabularize'}
 Plug 'scrooloose/nerdtree', {'on':  'NERDTreeToggle'}
-Plug 'tpope/vim-fugitive', {'on': 'Git'}
 Plug 'rizzatti/dash.vim', {'on': 'Dash'}
 Plug 'kien/rainbow_parentheses.vim', {'on': 'RainbowParenthesesToggleAll'}
 
@@ -176,24 +177,6 @@ nnoremap <leader>PU :PlugUpdate<cr>
 """""""""""""""""""""""""""""""
 " => Plugin Config
 """""""""""""""""""""""""""""""
-" Syntastic stuff
-" let g:syntastic_check_on_open=1
-" let g:syntastic_auto_loc_list=0
-" let g:syntastic_enable_signs=1
-" let g:syntastic_error_symbol = '✗'
-" let g:syntastic_warning_symbol = '⚠'
-" let g:syntastic_style_error_symbol = 'Տ'
-" let g:syntastic_style_warning_symbol = 'Տ'
-"
-" let g:syntastic_python_checks = ['flake8']
-" let g:syntastic_python_flake8_args = '--ignore=E501'
-"
-" let g:syntastic_java_checkers = ['checkstyle']
-"
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-
 " Neomake stuff
 let g:neomake_python_enabled_makers = ['flake8']
 let g:neomake_python_flake8_maker = {
@@ -212,6 +195,10 @@ let g:neomake_airline = 1
 
 autocmd! BufReadPost * Neomake
 autocmd! BufWritePost * Neomake
+
+" Status Bar Stuff
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
 
 " Tabular stuff - see http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
 if exists(":Tabularize")
