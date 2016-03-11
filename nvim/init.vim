@@ -11,7 +11,7 @@ let mapleader = ","
 " Turn on the Wild menu
 set wildmenu
 " Ignore compiled files
-set wildignore=*.o,*~,*.pyc
+set wildignore=*.o,*~,*.pyc,*/tmp/*,*.zip
 " Always show current position
 set ruler
 " When searching try to be smart about cases
@@ -138,7 +138,7 @@ call plug#begin('~/.config/nvim/plugged')
 " Always load
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-surround'
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'spiroid/vim-ultisnip-scala'
@@ -208,6 +208,9 @@ if exists(":Tabularize")
     vnoremap <leader>a: :Tabularize /:\zs<CR>
 
 endif
+
+" ctrl-p stuff
+let g:ctrlp_user_command = ['.git', 'git -C %s ls-files -co --exclude-standard']
 
 if exists(':DeopleteEnable')
     let g:deoplete#enable_at_startup = 1
