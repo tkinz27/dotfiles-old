@@ -46,7 +46,7 @@ set ffs=unix,mac,dos
 " => Tags
 """"""""""""""""""""""""""""
 " setup tags
-set tags=./tags;/
+set tags=./.tags;/
 
 """"""""""""""""""""""""""""
 " => Files, backups and undo
@@ -107,6 +107,8 @@ nnoremap <leader>> :vertical resize +10<cr>
 nnoremap <leader>wvh <C-w>t<C-w>K
 nnoremap <leader>whv <C-w>t<C-w>H
 
+set background=dark
+
 """""""""""""""""""""""""""""""""""
 " Neovim terminal support
 """""""""""""""""""""""""""""""""""
@@ -146,13 +148,14 @@ Plug 'airblade/vim-rooter'
 Plug 'benekastah/neomake'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+Plug 'majutsushi/tagbar'
+Plug 'terryma/vim-multiple-cursors'
 " Plug 'scrooloose/syntastic'
 if has('nvim')
     Plug 'shougo/deoplete.nvim'
 endif
 
 " On Command
-Plug 'majutsushi/tagbar', {'on': 'TagbarOpen'}
 Plug 'godlygeek/tabular', {'on': 'Tabularize'}
 Plug 'scrooloose/nerdtree', {'on':  'NERDTreeToggle'}
 Plug 'rizzatti/dash.vim', {'on': 'Dash'}
@@ -168,6 +171,8 @@ Plug 'stephpy/vim-yaml', {'for': ['yaml']}
 Plug 'mattn/emmet-vim', {'for': ['html', 'css']}
 Plug 'derekwyatt/vim-scala', {'for': ['scala']}
 Plug 'hdima/python-syntax', {'for': ['python']}
+Plug 'vim-scripts/SQLUtilities', {'for': ['sql']}
+Plug 'hashivim/vim-hashicorp-tools', {'for': ['terraform']}
 
 call plug#end()
 

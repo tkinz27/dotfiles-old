@@ -23,6 +23,7 @@ alias erc="vim ~/.bash_profile"
 alias grep="grep --color=auto"
 alias work="ssh -Y akinsley@192.168.130.104"
 alias gocode="cd $GOPATH"
+alias root='cd "$(git rev-parse --show-toplevel)"'
 
 alias cpa="rsync -av --progress --whole-file"
 alias cpr="rsync -rv --progress --whole-file"
@@ -34,3 +35,7 @@ alias ssh="ssh -oStrictHostKeyChecking=no -oCheckHostIP=no -oConnectionAttempts=
 
 # consoles
 alias vg='valgrind --suppressions=$HOME/.vgsup --leak-check=yes'
+
+alias dlogs='syslog -k Sender Docker'
+
+eval "$(hub alias -s)"
